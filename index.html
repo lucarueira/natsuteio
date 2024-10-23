@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorteio de Keys</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #228B22;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        #resultado {
+            margin-top: 30px;
+            font-size: 24px;
+            color: #FF69B4;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            margin-top: 30px;
+        }
+        .imagem-lateral {
+            width: 150px;
+            height: auto;
+        }
+        .imagem-central {
+            width: 200px;
+            height: auto;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Sorteio de Keys Steam</h1>
+    <button onclick="revelarPalavra()">Revelar Palavra</button>
+    <div id="resultado"></div>
+    <img id="imagemPalavra" class="imagem-central" src="" alt="" style="display:none;">
+
+    <!-- Container com imagens laterais -->
+    <div class="container">
+        <img src="https://static.rankone.global/img/avatars/natsumii_s2-6MKtal0hpG0SnTrX20d7Yc_medium.png" alt="Imagem Lateral 1" class="imagem-lateral">
+        <img src="https://static.rankone.global/img/avatars/natsumii_s2-6MKtal0hpG0SnTrX20d7Yc_medium.png" alt="Imagem Lateral 2" class="imagem-lateral">
+    </div>
+
+    <script>
+        // Lista de palavras e suas respectivas imagens
+        const palavras = [
+            { palavra: "Castle of Illusion", imagem: "https://assets.nuuvem.com/image/upload/t_banner_big/v1/products/66bfce5f53689d7635eac9d9/banner/nhqu8glkafmd3kiizwmq.jpg" },
+            { palavra: "Middle-earth: Shadow of Mordor", imagem: "https://assets.nuuvem.com/image/upload/t_banner_big/v1/products/557dbcb269702d0a9c600801/banners/lsv97mpj5fk77u9ghc1a.jpg" },
+            { palavra: "Batman Arkham Collection", imagem: "https://assets.nuuvem.com/image/upload/t_banner_big/v1/products/61437f66a3f8b1386fb570e3/banners/dzgtvpre3btb2l6i9ife.jpg" },
+            { palavra: "Mortal Kombat 11", imagem: "https://assets.nuuvem.com/image/upload/t_banner_big/v1/products/5c5093428810242173c0bb5c/banners/d2m04tkhgphzxvcskrwk.jpg" },
+            { palavra: "Injustice: Gods Among Us Ultimate Edition", imagem: "https://assets.nuuvem.com/image/upload/t_banner_big/v1/products/557dbb0269702d0a9ce16700/banners/dmdpj7ark78fyhfriahz.jpg" },
+            { palavra: "TEKKEN 7", imagem: "https://assets.nuuvem.com/image/upload/t_banner_big/v1/products/5888904221624827cb00000c/banners/ymvossdupfjqzcx1vrns.jpg" },
+            { palavra: "Monster Hunter Wilds Premium Deluxe Edition", imagem: "https://assets.nuuvem.com/image/upload/t_banner_big/v1/products/66f44587bc3859dbbe51216a/banners/o3ty6gzxmzvqtokdnwbb.jpg" },
+            
+        ];
+
+        function revelarPalavra() {
+            const sorteio = palavras[Math.floor(Math.random() * palavras.length)];
+            document.getElementById("resultado").innerText = sorteio.palavra;
+            const imagemPalavra = document.getElementById("imagemPalavra");
+            imagemPalavra.src = sorteio.imagem;
+            imagemPalavra.style.display = 'block'; // Mostra a imagem
+        }
+    </script>
+
+</body>
+</html>
